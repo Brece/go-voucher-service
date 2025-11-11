@@ -87,15 +87,17 @@ func postVoucher(c *fiber.Ctx) error {
 		return c.Status(fiber.StatusBadRequest).SendString("Invalid request payload")
 	}
 
+		lang := c.Query("lang", "de") // ?lang=de
+
 	// Validate required fields (simplified example)
 	if req.BookingID == "" || req.Client.FirstName == "" || req.Client.LastName == "" {
 		return c.Status(fiber.StatusBadRequest).SendString("Missing required fields")
 	}
 
-	b, err := GeneratePDFVoucher(req)
+	b, err := GeneratePDFVoucher(req, lang)
 
 	if err != nil {
-		return c.Status(fiber.StatusInternalServerError).SendString("Failed to generate PDF")
+		return c.Status(fiber.StatusInternalServerError).SendString("Failed to generate PDF: " + err.Error())
 	}
 
 	c.Attachment("voucher-" + req.BookingID + ".pdf")

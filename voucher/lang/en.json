@@ -1,0 +1,11 @@
+{
+    "voucher": "Voucher",
+    "booking_id": "Booking ID",
+    "client_name": "Client",
+    "activity": "Activity",
+    "start_date": "Start date",
+    "end_date": "End date",
+    "agency_name": "Agency",
+    "agency_contact": "Contact",
+    "agency_addr": "Address"
+}

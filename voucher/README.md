@@ -1,6 +1,8 @@
 # go-voucher-service
 
-This service generates a pdf voucher with the given booking data.
+This service generates a basic pdf voucher with the given booking data payload. It has a basic translation dictionary.
+
+![Voucher File](./assets/voucher.png)
 
 ### Setup
 
@@ -11,10 +13,11 @@ go run .
 ```
 
 -   Generate voucher for testing
+<!-- create file in voucher directory -->
 
 ```bash
-curl -X POST http://localhost:8080/voucher \
-  -H "content-type: application/json" -o voucher.pdf \
+curl -X POST 'http://localhost:8080/voucher?lang=de' \
+  -H 'content-type: application/json' -o voucher.pdf \
   -d '{
 	"bookingId": "BKG123456",
 	"activity": {
