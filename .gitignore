@@ -1,1 +1,16 @@
+# build/output
+/bin/
+/build/
+/dist/
+*.pdf
+*.log
+coverage.out
+
+# env & editor
+.env
+.vscode/
+.idea/
+
+# OS junk
 .DS_Store
+Thumbs.db
